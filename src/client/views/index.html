@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sentiment Analyzer</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h1 class="header">
+          Enter a URL of an article / a blog to discover its sentiment.
+        </h1>
+        <section>
+          <form id="form">
+            <input
+              id="article-url"
+              type="text"
+              name="input"
+              value=""
+              placeholder="Enter Article URL here"
+              class="form__input"
+            />
+            <br />
+            <button type="submit" class="form__submit" id="submit-button">
+              Submit
+            </button>
+          </form>
+        </section>
+
+        <section class="results hide" id="output-data">
+          <div>
+            <label for="text">Text: </label>
+            <div class="content" id="text"></div>
+          </div>
+          <div>
+            <label for="agreement">Agreement: </label>
+            <div class="content" id="agreement"></div>
+          </div>
+          <div>
+            <label for="subjectivity">Subjectivity: </label>
+            <div class="content" id="subjectivity"></div>
+          </div>
+          <div>
+            <label for="confidence">Confidence: </label>
+            <div class="content" id="confidence"></div>
+          </div>
+          <div>
+            <label for="irony">Irony: </label>
+            <div class="content" id="irony"></div>
+          </div>
+          <div>
+            <label for="score_tag">Score_tag: </label>
+            <div class="content" id="score_tag"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+  </body>
+</html>
